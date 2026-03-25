@@ -81,7 +81,7 @@ data
 ```
 
 
-### 4. Run
+## End-to-end running
 
 Run the script from the following directory:
 ``` bash
@@ -98,4 +98,13 @@ bash script/train_tnt.sh
 bash script/train_dtu.sh
 ```
 
+
+
+## Object-centric evaluation
+
+!['Object-centric Evaluation Framework'](assets/oc_eval.png)
+
+```
+bash script/object_centric_eval
+```
 
