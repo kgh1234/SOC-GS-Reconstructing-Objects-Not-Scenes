@@ -7,8 +7,8 @@
 set -euo pipefail
 
 # ===== Basic Settings =====
-ROOT="../../../masked_datasets/lerf_mask"
-OUTPUT_ROOT="../../eccv_ours/lerf_mask"
+ROOT=""
+OUTPUT_ROOT=""
 PLY_ITER=30000
 NUM_VIEWS=60
 IMG_W=986
