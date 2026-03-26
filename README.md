@@ -99,6 +99,63 @@ bash script/train_dtu.sh
 ```
 
 
+## Hyperparameters
+
+### SOC-GS Module Control
+
+| Argument | Default | Description |
+|---|---|---|
+| `--geometric_filtering` | `True` | Enable/disable geometric view consistency filtering |
+| `--region_filtering` | `True` | Enable/disable region-based view validation |
+| `--gaussian_merge` | `True` | Enable/disable Gaussian merging |
+| `--prune_ratio` | `1.0` | Pruning ratio. Set to `0.0` to disable pruning |
+
+### View Filtering
+
+| Argument | Default | Description |
+|---|---|---|
+| `--cov_threshold` | `0.2` | Co-visibility score threshold for geometric view filtering. Lower values apply more conservative filtering |
+| `--hit_ratio` | `0.05` | Hit ratio threshold for region-based view validation. Views below this value are excluded from training |
+
+### Pruning
+
+| Argument | Default | Description |
+|---|---|---|
+| `--prune_iterations` | `600 1200 1800` | Iterations at which mask-guided pruning is performed |
+| `--threshold_prune_k` | `0.5` | Distribution coefficient for adaptive pruning threshold (τ = µ + kσ). Higher values prune more aggressively |
+| `--pruning_max` | `0.05` | Upper bound of the mask overlap pruning threshold |
+
+### Gaussian Merging
+
+| Argument | Default | Description |
+|---|---|---|
+| `--step` | `1000` | Interval (in iterations) at which Gaussian merging is performed |
+| `--end` | `15000` | Iteration at which Gaussian merging stops |
+
+### Mask
+
+| Argument | Default | Description |
+|---|---|---|
+| `--mask_dir` | `""` | Path to the object mask directory |
+| `--mask_binary_threshold` | `128` | Binarization threshold for masks (0–255) |
+| `--mask_invert` | `False` | Invert the mask |
+| `--mask_disabled` | `False` | Disable mask entirely |
+
+### Training
+
+| Argument | Default | Description |
+|---|---|---|
+| `--iterations` | `30000` | Total number of training iterations |
+| `--test_iterations` | `7000 30000` | Iterations at which test evaluation is performed |
+| `--save_iterations` | `7000 30000` | Iterations at which the model is saved |
+| `--checkpoint_iterations` | `[]` | Iterations at which checkpoints are saved |
+| `--start_checkpoint` | `None` | Path to checkpoint to resume training from |
+| `--white_background` | `False` | Use white background |
+| `--disable_viewer` | `False` | Disable the GUI viewer |
+
+
+
+
 
 ## Object-centric evaluation
 
@@ -107,4 +164,5 @@ bash script/train_dtu.sh
 ```
 bash script/object_centric_eval
 ```
+
 
